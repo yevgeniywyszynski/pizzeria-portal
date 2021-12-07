@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PageNav from '../../layout/PageNav/PageNav';
 
-const MainLayout = (props) => (
+const MainLayout = ({children}) => (
   <div>
-    {props.children}
+    <PageNav />
+    <h3> Pizzeria</h3>
+    {children}
   </div>
 );
 
