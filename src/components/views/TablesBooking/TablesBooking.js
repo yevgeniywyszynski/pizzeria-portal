@@ -13,3 +13,4 @@ TablesBooking.propTypes = {
 };
 
 export default TablesBooking;
+

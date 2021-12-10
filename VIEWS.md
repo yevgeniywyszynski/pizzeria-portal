@@ -3,7 +3,7 @@
 - '/'
     - statystyki dzisiejszych zamowien (zdalne i lokalne)
     - liste rezerwacji i eventy zaplanowanych na dzisiaj
-
+    
 # Logowanie
 
 - '/login'
