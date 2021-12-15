@@ -1,10 +1,10 @@
-# Dashboard-homepage
+# Dashboard-homepage +
 
 - '/'
     - statystyki dzisiejszych zamowien (zdalne i lokalne)
     - liste rezerwacji i eventy zaplanowanych na dzisiaj
-    
-# Logowanie
+
+# Logowanie +
 
 - '/login'
     - pola na login i haslo
@@ -12,7 +12,7 @@
 
 # Widok dostepnosci stolikow
 
-- '/tables'
+- '/tables' +
     - wybor daty i gdoziny 
     - tabela z lista rezerwacji oraz wydarzen
         - kazda kolumna bedzie jednym stolikiem
@@ -21,8 +21,8 @@
         - po kliknieciu rezerqacji lub eventu, przechodzimy na strone szczegolow
 
 - '/tables/booking/:id'
-    - zawiera wszystkie informacje dotyczace rezerwacji
-    - umozliwia edycje i zapisania zmian
+    - zawiera wszystkie informacje dotyczace rezerwacji +
+    - umozliwia edycje i zapisania zmian -
 
 - '/tables/booking/new'
     - anologicznie do powyzej, bez poczatkowych informacji
@@ -35,7 +35,7 @@
 
 # Widok kelnera
 
-- '/waiter'
+- '/waiter' +
     - tabela
         - w wierszach stoliki
         - w kolumnach rozne rodzaje informacji (status, czas od ostatniej aktywmosci)
@@ -54,7 +54,7 @@
 
 # Widok kuchni 
 
-- '/kitchen'
+- '/kitchen' + 
     - wyswietlacz liste zamowien w kolejnosci ich zlozenia 
     - lista musi zawierac 
         - numer stolika lub zamowienia zdalnego 

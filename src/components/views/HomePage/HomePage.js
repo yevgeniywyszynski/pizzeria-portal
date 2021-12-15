@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './HomePage.module.scss';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,19 +6,28 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Toolbar from '@mui/material/Toolbar';
 
 const statisticOrder = [
   {id: '3', type: 'local', totalPrice: 120},
-  {id: '4', type: 'remote', totalPrice: 60},
-  {id: '5', type: 'remote', totalPrice: 55},
-  {id: '6', type: 'local', totalPrice: 100},
+  {id: '4', type: 'local', totalPrice: 300},
+  {id: '9', type: 'local', totalPrice: 890},
+  {id: '22', type: 'local', totalPrice: 1020},
+];
+
+const remoteOrders = [
+  {id: '2', type: 'remote', price: 120},
+  {id: '6', type: 'remote', price: 520},
+  {id: '4', type: 'remote', price: 220},
+  {id: '5', type: 'remote', price: 20},
 ];
 
 const listReservation = [
-  {id: '1', type: 'reservation', payStatus: 'done'},
+  {id: '1', type: 'reservation', payStatus: 'advance'},
   {id: '2', type: 'event', payStatus: 'done'},
+  {id: '4', type: 'event', payStatus: 'done'},
+  {id: '5', type: 'event', payStatus: 'done'},
+  {id: '7', type: 'reservation', payStatus: 'advance'},
 ];
 
 const summaryTotal = (statisticOrder) => {
@@ -29,6 +37,19 @@ const summaryTotal = (statisticOrder) => {
   }
   return sum;
 };
+
+const summaryRemote = (remoteOrders) => {
+  let sum = 0;
+  for(let orderOne of remoteOrders) {
+    sum = sum + orderOne.price;
+  }
+  return sum;
+};
+
+/* numer zamowienia                 typ                    cena
+      2                            local      (suma wszystkich lokalnych zamowien)
+      3                            remote       (sum wszstkich remote)
+*/
 
 
 const Homepage = () => {
@@ -66,6 +87,36 @@ const Homepage = () => {
         </Table>
       </Paper>
       <Toolbar /> 
+      <Paper className={styles.component}>
+        <Table>
+          <TableHead>
+            <TableCell>Numer rezerwacji</TableCell>
+            <TableCell>Typ</TableCell>
+            <TableCell>Cena</TableCell>
+          </TableHead>
+          <TableBody>
+            {remoteOrders.map(row => (
+              <TableRow key={row.id} >
+                <TableCell>
+                  {row.id}
+                </TableCell>
+                <TableCell>
+                  {row.type}
+                </TableCell>
+                <TableCell>
+                  {row.price + ' zł'}
+                </TableCell>
+              </TableRow>
+            ))}
+            <TableCell/>
+            <TableCell/>
+            <TableCell>
+              {summaryRemote(remoteOrders) + ' zł'}
+            </TableCell>
+          </TableBody>
+        </Table>
+      </Paper>
+      <Toolbar />
       <Paper className={styles.component}>
         <Table>
           <TableHead>

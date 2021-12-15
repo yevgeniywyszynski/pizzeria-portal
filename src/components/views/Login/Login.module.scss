@@ -3,3 +3,21 @@
 .component {
   padding: $base-size;
 }
+
+.paper {
+  width: 1005;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.button{
+  font-size: 15px;
+  background-color: #286090;
+  color: #fff;
+  margin-bottom: 10px;
+  width: 90px;
+  height: 30px;
+}
