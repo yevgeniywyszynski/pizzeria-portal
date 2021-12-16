@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 class Waiter extends React.Component {
+
   static propTypes = {
     tables: PropTypes.any,
     fetchTables: PropTypes.func,
@@ -30,34 +31,38 @@ class Waiter extends React.Component {
       case 'free':
         return (
           <>
-            <Button onClick={()=>this.props.setChangestatus({ ...row, ...row.order, status:'thinking'})}>thinking</Button>
-            <Button>new order</Button>
+            <Button onClick={ () => this.props.setChangestatus({ ...row, ...row.order, status:'thinking'})}>thinking</Button>
+            <Button onClick={ () => this.props.setChangestatus({ ...row, ...row.order, status:'ordered'})}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <Button onClick={ () => this.props.setChangestatus({ ...row, ...row.order, status:'ordered'})}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button onClick={ () => this.props.setChangestatus({ ...row, ...row.order, status:'prepared'})} >prepared</Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={ () => this.props.setChangestatus({ ...row, ...row.order, status:'delivered'})}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button onClick={ () => this.props.setChangestatus({ ...row, ...row.order, status:'paid'})}>paid</Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button onClick={ () => this.props.setChangestatus({ ...row, ...row.order, status:'free'})}>free</Button>
         );
       default:
         return null;
     }
   }
+  /*    .----new_order-->[ordered]<---------------.
+        |                                         |
+  ---> [free] --thinking-> [thining] ---new_order-'
+  */
 
   render() {
     const { loading: { active, error }, tables } = this.props;
